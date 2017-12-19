@@ -13,6 +13,10 @@ class Dog
     self
   end
 
+  def update
+    save
+  end
+
   def self.create(hash)
     dog = new(name:hash[:name], breed:hash[:breed])
     dog.save
