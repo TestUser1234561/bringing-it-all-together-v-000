@@ -21,7 +21,7 @@ class Dog
 
   def self.find_or_create_by(name:nil, breed:nil)
     dog = DB[:conn].execute("select * from dogs where name = #{name} & breed = #{breed} limit 1")
-    return dog.empty? ? create(name:name, breed:breed) : new_from_db()
+    return dog.empty? ? create(name:name, breed:breed) : new_from_db(dog[0])
   end
 
   def self.find_by_id(id)
