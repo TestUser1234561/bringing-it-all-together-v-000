@@ -5,6 +5,5 @@ class Dog
     @id = id
     @name = name
     @breed = breed
-    p name
   end
 end
