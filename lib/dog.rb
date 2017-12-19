@@ -13,6 +13,12 @@ class Dog
     self
   end
 
+  def self.create(hash)
+    dog = new(hash[:name], hash[:breed])
+    dog.save
+    dog
+  end
+
   def self.create_table
     DB[:conn].execute(
       <<-SQL
