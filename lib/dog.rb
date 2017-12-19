@@ -23,7 +23,9 @@ class Dog
     DB[:conn].execute("select * from dogs where id = #{id}")
   end
 
-  def self.new_from_db
+  def self.new_from_db(row)
+    new(id:row[0], name:row[1], breed:row[2])
+  end
 
   def self.create_table
     DB[:conn].execute(
