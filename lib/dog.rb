@@ -20,7 +20,8 @@ class Dog
   end
 
   def self.find_or_create_by(name:nil, breed:nil)
-    dog = DB[:conn].execute("select * from dogs where name = #{name} & breed = #{breed}")[0]
+    dog = DB[:conn].execute("select * from dogs where name = #{name} & breed = #{breed}")
+    return dog.empty? ? 
   end
 
   def self.find_by_id(id)
