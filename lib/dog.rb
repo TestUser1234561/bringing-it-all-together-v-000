@@ -10,6 +10,7 @@ class Dog
   def save
     DB[:conn].prepare("insert into dogs (name, breed) values (?, ?)").execute([self.name, self.breed])
     self.id = DB[:conn].execute('select max(id) from dogs')[0]
+    self
   end
 
   def self.create_table
