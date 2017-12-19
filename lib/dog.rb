@@ -22,8 +22,8 @@ class Dog
 
 
   def self.find_by_id(id)
-    dog = DB[:conn].execute("select * from dogs where id = #{id}")[0]
-    new_from_db(DB[:conn].execute("select * from dogs where id = #{id}")[0])
+    dog = DB[:conn].execute("select * from dogs where id = #{id}")
+    return new_from_db(dog[0]) unless dog.empty?
   end
 
   def self.new_from_db(row)
