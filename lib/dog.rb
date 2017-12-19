@@ -25,7 +25,7 @@ class Dog
   end
 
   def self.find_by_name(name)
-    dog = DB[:conn].execute("select * from dogs where name = #{name}")
+    dog = DB[:conn].execute("select * from dogs where name = ?", [name])
     return new_from_db(dog[0]) unless dog.empty?
   end
 
