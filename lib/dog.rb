@@ -19,7 +19,9 @@ class Dog
     dog
   end
 
-
+  def self.find_or_create_by(name:nil, breed:nil)
+    dog = DB[:conn].execute("select * from dogs where name = #{name} & breed = #{breed}")[0]
+  end
 
   def self.find_by_id(id)
     dog = DB[:conn].execute("select * from dogs where id = #{id}")
