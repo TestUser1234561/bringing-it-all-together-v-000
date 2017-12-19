@@ -19,6 +19,12 @@ class Dog
     dog
   end
 
+  def self.find_by_id(id)
+    DB[:conn].execute("select * from dogs where id = #{id}")
+  end
+
+  def self.new_from_db
+
   def self.create_table
     DB[:conn].execute(
       <<-SQL
