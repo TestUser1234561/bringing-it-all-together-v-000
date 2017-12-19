@@ -24,6 +24,8 @@ class Dog
     return dog.empty? ? create(name:name, breed:breed) : new_from_db(dog[0])
   end
 
+  self.find_by_name(name)
+
   def self.find_by_id(id)
     dog = DB[:conn].execute("select * from dogs where id = #{id}")
     return new_from_db(dog[0]) unless dog.empty?
